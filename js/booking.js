@@ -28,7 +28,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
 
     try {
         // Step 1: Create Customer
-        const customerResponse = await fetch("https://sandbox.mews-demo.com/api/connector/v1/customers/add", {
+        const customerResponse = await fetch("https://mews-demo.com/api/connector/v1/customers/add", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -47,7 +47,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
         const customerId = customerData.Id;
 
         // Step 2: Create Reservation
-        const reservationResponse = await fetch("https://sandbox.mews-demo.com/api/connector/v1/reservations/add", {
+        const reservationResponse = await fetch("https://mews-demo.com/api/connector/v1/reservations/add", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
