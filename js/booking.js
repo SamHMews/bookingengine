@@ -34,13 +34,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
             "NationalityCode": "",
             "SendMarketingEmails": false
         },
-        "Booker": {
-            "Email": email,
-            "FirstName": firstName,
-            "LastName": lastName,
-            "Telephone": "",
-            "SendMarketingEmails": false
-        },
+      
         "Reservations": [
             {
                 "RoomCategoryId": roomCategoryId,
