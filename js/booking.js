@@ -2,12 +2,13 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     event.preventDefault();
 
     // Collect form data
-    const name = document.getElementById('name').value.split(" ");
-    const firstName = name[0] || "";
-    const lastName = name.slice(1).join(" ") || "";
-    const email = document.getElementById('email').value;
-    const checkin = document.getElementById('checkin').value + "T00:00:00Z";
-    const checkout = document.getElementById('checkout').value + "T00:00:00Z";
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const checkinDate = new Date(document.getElementById('checkin').value);
+    const checkoutDate = new Date(document.getElementById('checkout').value);
+    const checkin = checkinDate.toISOString().split(".")[0] + "Z";
+    const checkout = checkoutDate.toISOString().split(".")[0] + "Z";
     const guests = parseInt(document.getElementById('guests').value);
     const roomType = document.getElementById('room').value;
     const rateId = "e0f22b71-2e25-49a7-9dce-b26d00d2cde9"; // Fully Flexible
@@ -33,7 +34,13 @@ document.getElementById('bookingForm').addEventListener('submit', async function
             "NationalityCode": "",
             "SendMarketingEmails": false
         },
-    
+        "Booker": {
+            "Email": email,
+            "FirstName": firstName,
+            "LastName": lastName,
+            "Telephone": "",
+            "SendMarketingEmails": false
+        },
         "Reservations": [
             {
                 "RoomCategoryId": roomCategoryId,
